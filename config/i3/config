@@ -1,0 +1,183 @@
+### SIMPLE i3-gaps CONFIG ###
+
+### MOD KEY ###
+set $mod Mod4
+
+### FONT FOR WINDOW TITLE ###
+font pango:JetBrains Mono 10
+
+### BRIGHTNESS CONTROL ###
+bindsym XF86MonBrightnessUp exec --no-startUp-id sudo xbacklight -inc 5 && dunstify -r 500 -h int:value:$(xbacklight -get) "brightness: $(xbacklight -get)%" -i /home/vlad/Pictures/Icons/brightness-high.svg
+bindsym XF86MonBrightnessDown exec --no-startUp-id sudo xbacklight -dec 5 && dunstify -r 500 -h int:value:$(xbacklight -get) "brightness: $(xbacklight -get)%" -i /home/vlad/Pictures/Icons/brightness-low.svg
+
+### KEYBOARD LAYOUT ###
+exec --no-startUp-id setxkbmap us,ru -option 'grp:alt_shift_toggle'
+
+### PULSEAUDIO CONTROL ###
+set $status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startUp-id pactl set-sink-volume @DEFAULT_SINK@ +5% && sh /home/vlad/.config/dunst/scripts/volume.sh 
+bindsym XF86AudioLowerVolume exec --no-startUp-id pactl set-sink-volume @DEFAULT_SINK@ -5% && sh /home/vlad/.config/dunst/scripts/volume.sh
+bindsym XF86AudioMute exec --no-startUp-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+### MODIFICATOR FOR FLOATING WINDOWS ###
+floating_modifier $mod
+
+### TERMINAL ###
+bindsym $mod+Return exec --no-startUp-id kitty
+
+### CLOSE WINDOW ###
+bindsym $mod+Shift+q kill
+
+### ROFI ###
+bindsym $mod+d exec --no-startUp-id rofi -show drun -theme material.rasi
+
+### CHANGE FOCUS ###
+bindsym $mod+h focus Left
+bindsym $mod+j focus Down
+bindsym $mod+k focus Up
+bindsym $mod+l focus Right
+
+bindsym $mod+Left focus Left
+bindsym $mod+Down focus Down
+bindsym $mod+Up focus Up
+bindsym $mod+Right focus Right
+
+### MOVE FOCUSED WINDOW ###
+bindsym $mod+Shift+h move Left
+bindsym $mod+Shift+j move Down
+bindsym $mod+Shift+k move Up
+bindsym $mod+Shift+l move Right
+
+bindsym $mod+Shift+Left move Left
+bindsym $mod+Shift+Down move Down
+bindsym $mod+Shift+Up move Up
+bindsym $mod+Shift+Right move Right
+
+### SPLIT IN HORIZONTAL ORIENTATION ###
+bindsym $mod+b split v
+
+### SPLIT IN VERTICAL ORIENTATION ###
+bindsym $mod+v split h
+
+### FULLSCREEN ###
+bindsym $mod+f fullscreen toggle
+
+### CHANGE CONTAINER ###
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+### TOGGLE TILING/FLOATING ###
+bindsym $mod+Shift+space floating toggle
+
+### CHANGE FOCUS BETWEEN TILING/FLOATING WINDOWS ###
+bindsym $mod+space focus mode_toggle
+
+### WORKSPACES ###
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+### SWITCH TO WORKSPACE ###
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+### MOVE WINDOW TO WORKSPACE ###
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+### RELOAD CONFIG ###
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+### RESIZE WINDOW ###
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+### BORDER ###
+for_window [class=".*"] border pixel 1
+smart_borders on
+smart_borders no_gaps
+client.focused #edfefe #edfefe #edfefe #edfefe #edfefe 
+client.unfocused #424242 #424242 #424242 #424242 #424242
+
+### GAPS ###
+gaps inner 17
+gaps bottom 0
+gaps top -7
+
+### PICOM ###
+exec_always --no-startUp-id picom --config=/home/vlad/.config/picom/picom.conf -b
+
+### POLYBAR ###
+exec_always --no-startUp-id $HOME/.config/polybar/launch.sh
+
+### WALLPAPER ###
+exec_always --no-startUp-id feh --bg-scale /home/vlad/Pictures/Wallpapers/8mve8fn0s3q81.jpg
+
+### SCREENSHOT ###
+bindsym Print exec --no-startUp-id maim ~/Pictures/Screenshots/$(date +%s).png && notify-send 'screenshot taken' -i /home/vlad/Pictures/Icons/aperture.svg
+bindsym Shift+Print exec --no-startUp-id maim -s | xclip -selection clipboard -t image/png && notify-send 'screenshot copied' -i /home/vlad/Pictures/Icons/aperture.svg
+
+### FLOATING WINDOWS ###
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Yad_new"] floating enable
+for_window [class="Yad"] floating enable
+for_window [class="Transmission-gtk"] floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="Pavucontrol"] floating enable
+
+### APPS BINDINGS ###
+bindsym $mod+F1 exec --no-startUp-id pcmanfm
+bindsym $mod+F2 exec --no-startUp-id chromium
+bindsym $mod+F3 exec --no-startUp-id kitty ncmpcpp
+
+### ASSIGNING WINDOWS TO WORKSPACES ###
+for_window [class="Firefox"] move to workspace $ws2
+for_window [class="Spotify"] move to workspace $ws3
+for_window [class="Steam"] move to workspace $ws4
+for_window [class="Chromium"] move to workspace $ws2
+for_window [class="TelegramDesktop"] move to workspace $ws5
+
+### BACK TO PREV WORKSPACE ###
+bindsym $mod+Tab workspace back_and_forth
+
+### MPD ###
+exec_always --no-startUp-id mpd

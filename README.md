@@ -10,7 +10,7 @@
 - **launcher**: rofi
 - **terminal**: kitty
 - **browser**: ungoogled chromium
-- **music**L ncmpcpp
+- **music**: ncmpcpp
 - **file manager**: ranger
 - **editor**: neovim
 - **screenshot tool**: maim

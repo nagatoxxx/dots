@@ -1,3 +1,5 @@
+dotfiles
+========
 ## general
 - **distro**: Gentoo
 - **shell**: zsh
@@ -17,3 +19,10 @@
 - **pdf**: zathura
 - **compositing**: picom
 - **wallpapers & image viewer**: feh
+
+screenshots
+===========
+![Скриншот 1](https://github.com/nagatoxxx/dots/blob/main/pictures/screenshots/1.png)
+![Скриншот 2](https://github.com/nagatoxxx/dots/blob/main/pictures/screenshots/2.png)
+![Скриншот 3](https://github.com/nagatoxxx/dots/blob/main/pictures/screenshots/3.png)
+![Скриншот 4](https://github.com/nagatoxxx/dots/blob/main/pictures/screenshots/4.png)

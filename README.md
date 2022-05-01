@@ -3,6 +3,7 @@
 - **shell**: zsh
 - **font**: JetBrains Mono
 - **wm**: i3-gaps
+- **colorscheme**: catppuccin
 
 ## details
 - **panel**: polybar

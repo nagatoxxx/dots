@@ -19,6 +19,7 @@ dotfiles
 - **pdf**: zathura
 - **compositing**: picom
 - **wallpapers & image viewer**: feh
+- **visualizer**: cava
 
 screenshots
 ===========

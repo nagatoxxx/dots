@@ -7,8 +7,8 @@ set $mod Mod4
 font pango:JetBrains Mono 10
 
 ### BRIGHTNESS CONTROL ###
-bindsym XF86MonBrightnessUp exec --no-startUp-id sudo xbacklight -inc 5 && dunstify -r 500 -h int:value:$(xbacklight -get) "brightness: $(xbacklight -get)%" -i /home/vlad/Pictures/Icons/brightness-high.svg
-bindsym XF86MonBrightnessDown exec --no-startUp-id sudo xbacklight -dec 5 && dunstify -r 500 -h int:value:$(xbacklight -get) "brightness: $(xbacklight -get)%" -i /home/vlad/Pictures/Icons/brightness-low.svg
+bindsym XF86MonBrightnessUp exec --no-startUp-id sudo xbacklight -inc 5 && dunstify -r 500 -h int:value:$(xbacklight -get) "brightness: $(xbacklight -get)%" -i /home/vlad/pictures/icons/brightness-high.svg
+bindsym XF86MonBrightnessDown exec --no-startUp-id sudo xbacklight -dec 5 && dunstify -r 500 -h int:value:$(xbacklight -get) "brightness: $(xbacklight -get)%" -i /home/vlad/pictures/icons/brightness-low.svg
 
 ### KEYBOARD LAYOUT ###
 exec --no-startUp-id setxkbmap us,ru -option 'grp:alt_shift_toggle'
@@ -139,7 +139,7 @@ client.focused #edfefe #edfefe #edfefe #edfefe #edfefe
 client.unfocused #424242 #424242 #424242 #424242 #424242
 
 ### GAPS ###
-gaps inner 17
+gaps inner 20
 gaps bottom 0
 gaps top -7
 
@@ -150,7 +150,7 @@ exec_always --no-startUp-id picom --config=/home/vlad/.config/picom/picom.conf -
 exec_always --no-startUp-id $HOME/.config/polybar/launch.sh
 
 ### WALLPAPER ###
-exec_always --no-startUp-id feh --bg-scale /home/vlad/Pictures/Wallpapers/8mve8fn0s3q81.jpg
+exec_always --no-startUp-id feh --bg-scale /home/vlad/pictures/wallpapers/8mve8fn0s3q81.jpg
 
 ### SCREENSHOT ###
 bindsym Print exec --no-startUp-id maim ~/Pictures/Screenshots/$(date +%s).png && notify-send 'screenshot taken' -i /home/vlad/Pictures/Icons/aperture.svg

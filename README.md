@@ -3,6 +3,7 @@
 ![Скриншот 2](https://github.com/nagatoxxx/dots/blob/main/pictures/screenshots/2.png)
 ![Скриншот 3](https://github.com/nagatoxxx/dots/blob/main/pictures/screenshots/3.png)
 ![Скриншот 4](https://github.com/nagatoxxx/dots/blob/main/pictures/screenshots/4.png)
+![Скриншот 5](https://github.com/nagatoxxx/dots/blob/main/pictures/screenshots/5.png)
 
 # dotfiles
 

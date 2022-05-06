@@ -1,7 +1,7 @@
 require('plugins')
 require('settings')
 require('keymaps')
-require('bubbles')
+require('statusline')
 require('bufferline').setup{
     options = {
         always_show_bufferline = true,
